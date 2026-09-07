@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { AuthProvider, useAuth } from '@/context/AuthContext';
 import { Navigation, PageContainer, type View } from '@/components/Navigation';
 import { LoginPage } from '@/pages/LoginPage';
+import { RegisterPage } from '@/pages/RegisterPage';
 import { CitizenDashboard } from '@/pages/CitizenDashboard';
 import { ServiceMarketplace } from '@/pages/ServiceMarketplace';
 import { ServiceDetailPage } from '@/pages/ServiceDetailPage';
@@ -17,9 +18,12 @@ function AppContent() {
   const [view, setView] = useState<View>('dashboard');
   const [selectedService, setSelectedService] = useState<string | null>(null);
   const [isAdminMode, setIsAdminMode] = useState(false);
+  const [showRegister, setShowRegister] = useState(false);
 
   if (!citizen) {
-    return <LoginPage />;
+    return showRegister
+      ? <RegisterPage onBack={() => setShowRegister(false)} />
+      : <LoginPage onRegister={() => setShowRegister(true)} />;
   }
 
   const handleNavigate = (v: View) => {
