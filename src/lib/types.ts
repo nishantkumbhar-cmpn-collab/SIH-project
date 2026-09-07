@@ -237,5 +237,4 @@ export interface DemoCitizen {
   password: string;
   role: 'citizen' | 'admin';
   description: string;
-  registered?: boolean;
 }

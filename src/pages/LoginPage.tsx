@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { Shield, LogIn, Loader as Loader2, GraduationCap, CircleAlert as AlertCircle, Building2, UserPlus } from 'lucide-react';
+import { Shield, LogIn, Loader2, GraduationCap, AlertCircle, Building2 } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 import { demoCitizens } from '@/lib/mockApi/seedData';
 
-export function LoginPage({ onRegister }: { onRegister: () => void }) {
+export function LoginPage() {
   const { login, loginAsDemo, loading, error } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -101,13 +101,6 @@ export function LoginPage({ onRegister }: { onRegister: () => void }) {
               {loading ? 'Signing in...' : 'Sign In'}
             </button>
           </form>
-
-          <p className="text-center text-sm text-slate-500 mt-4">
-            Don't have an account?{' '}
-            <button onClick={onRegister} className="text-gov-600 hover:text-gov-700 font-medium inline-flex items-center gap-1">
-              <UserPlus className="w-3.5 h-3.5" /> Register here
-            </button>
-          </p>
 
           <div className="mt-8">
             <div className="relative">
