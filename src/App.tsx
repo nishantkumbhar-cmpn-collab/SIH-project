@@ -12,6 +12,7 @@ import { AdminDashboard } from '@/pages/AdminDashboard';
 import { AdminRegistry } from '@/pages/AdminRegistry';
 import { AdminApplications } from '@/pages/AdminApplications';
 import { AdminAuditLog } from '@/pages/AdminAuditLog';
+import { Download } from 'lucide-react';
 
 function AppContent() {
   const { citizen } = useAuth();
@@ -94,6 +95,14 @@ function AppContent() {
           <p className="text-xs text-slate-400 mt-1">
             Prototype using mock government APIs. Not connected to real government systems.
           </p>
+          <a
+            href="/GovSync-vs-UMANG-Deep-Research-Report.pdf"
+            download
+            className="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-lg text-xs font-medium bg-gov-600 text-white hover:bg-gov-700 transition-colors"
+          >
+            <Download className="w-3.5 h-3.5" />
+            Download Research Report (PDF)
+          </a>
         </div>
       </footer>
     </div>
